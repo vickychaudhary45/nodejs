@@ -1,7 +1,21 @@
-console.log("Hello world")
+// console.log("Hello world")
 
+//student object 
 
+const student = {
+    st:1,
+    st:2
+}
 
+const fun = (a, b) => {
+  return <>
+    console.log(a+b) 
+    {/* a+b  */}
+    {/* console.log("Hello inside world") */}
+  </>;
+};
+
+fun(2, 3);
 
 
 
@@ -37,8 +51,7 @@ console.log("Hello world")
 // const express = require('express');
 // const app = express()
 
-
-// // using jwtwebtoken 
+// // using jwtwebtoken
 // const jwt = require('jsonwebtoken')
 // app.use(express.json())
 // require('dotenv').config()
@@ -54,14 +67,14 @@ console.log("Hello world")
 //         title: 'Post 2'
 //     }
 // ]
-// //1. creating a route 
+// //1. creating a route
 // // app.get('/posts', (req, res) => {
 // //     res.json(posts)
 // app.get('/posts', authenticateToken, (req, res) => {
 //     res.json(posts.filter(post => post.username === req.user.name ))
 // })
 
-// // create a token  
+// // create a token
 // app.post('/login',(req, res)=>{
 //     //authenticating user
 //     const username = req.body.username
