@@ -1,51 +1,36 @@
 // console.log("Hello world")
 
-//student object 
+//student object
 
 const student = {
-    st:1,
-    st:2
-}
-
-const fun = (a, b) => {
-  return <>
-    console.log(a+b) 
-    {/* a+b  */}
-    {/* console.log("Hello inside world") */}
-  </>;
+  st: 1,
+  st: 2,
 };
 
-fun(2, 3);
+const array = ["apple", "oranges", " ", "mango", " ", "lemon"];
 
+const mapp = (element) => {
+  if (element === " ") {
+    return "empty string";
+  }
+  return element;
+};
 
+const newArray = array.map(mapp);
 
+console.log(newArray);
 
+// const fun = (a, b) => {
+//   return (
+//     <>
+//       console.log(a+b)
+//       {/* a+b  */}
+//       {/* console.log("Hello inside world") */}
+//     </>
+//   );
+// };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// fun(2, 3);
 
 // //1. console.log("hi")
 // const express = require('express');
