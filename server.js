@@ -1,24 +1,48 @@
+console.log("Hello world")
+
+
+const http = require("http");
+
+http.createServer((req, res)=>{
+  res.write("<h1>vicky poonia</h1>")
+  res.end();
+}).listen(4500, "localhost", ()=>{
+  console.log("listening...");
+})
+
+
+
+
+
+
 // console.log("Hello world")
 
 //student object
 
-const student = {
-  st: 1,
-  st: 2,
-};
+// const student = {
+//   st: 1,
+//   st: 2,
+// };
 
-const array = ["apple", "oranges", " ", "mango", " ", "lemon"];
+// const array = ["apple", "oranges", " ", "mango", " ", "lemon"];
 
-const mapp = (element) => {
-  if (element === " ") {
-    return "empty string";
-  }
-  return element;
-};
+// const mapp = (element) => {
+//   if (element === " ") {
+//     return "empty string";
+//   }
+//   return element;
+// };
 
-const newArray = array.map(mapp);
+// const newArray = array.map(mapp);
 
-console.log(newArray);
+// console.log(newArray);
+
+// const obj1 = {'key1': 1 , 'key2' : 2}
+// const obj2 = { ...obj1, key1: 1000}
+
+// console.log(obj1)
+// console.log(obj2)
+
 
 // const fun = (a, b) => {
 //   return (
