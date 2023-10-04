@@ -1,14 +1,32 @@
 console.log("Hello world")
 
 
+// const http = require("http");
+
+// http.createServer((req, res)=>{
+//   res.write("<h1>vicky poonia</h1>")
+//   res.end();
+// }).listen(4500, "localhost", ()=>{
+//   console.log("listening...");
+// })
+
 const http = require("http");
 
-http.createServer((req, res)=>{
-  res.write("<h1>vicky poonia</h1>")
+http.createServer((req, res) => {
+  if (req.url === "/home") {
+    res.write("<h1>Welcome home</h1>");
+  } else if (req.url === "/about") {
+    res.write("<h1>Welcome to About Us page</h1>");
+  } else if (req.url === "/node") {
+    res.write("<h1>Welcome to my Node Js project</h1>");
+  } else {
+    res.write("<h1>vicky poonia</h1>");
+  }
   res.end();
-}).listen(4500, "localhost", ()=>{
+}).listen(4500, "localhost", () => {
   console.log("listening...");
-})
+});
+
 
 
 
