@@ -1,4 +1,110 @@
-console.log("Hello world")
+// console.log("Hello world")
+
+// const http = require("http");
+// const fs = require("fs");
+
+// const server = http.createServer((req, res) => {
+//   const url = req.url;
+//   const method = req.method;
+//   if (url === "/") {
+//     res.write("<html>");
+//     res.write("<head><title>Enter Message</title><head>");
+//     res.write('<body><form action="/message" method="POST"><input type="text" name="message"><Button type="submit">SEND</Button></form>');
+    
+//     // Check if a message was sent
+//     const message = req.headers["message"];
+//     console.log(message);
+//     if (message) {
+//       console.log("aiurehfuio");
+//       res.write("<p>Message: " + message + "</p>");
+//     }
+    
+//     res.write("</html>");
+//     return res.end();
+//   }
+
+//   if (url === "/message" && method === "POST") {
+//     const body = [];
+//     req.on("data", (c)=>{
+//       console.log(c);
+//       body.push(c);
+//     })
+//     return req.on("end", ()=>{
+//       const parsedBody = Buffer.concat(body).toString();
+//       console.log(parsedBody);
+//       const message = parsedBody.split("=")[1];
+//       // res.setHeader("Message", message);
+//       fs.writeFileSync("message.txt", message);
+//       res.statusCode = 302;
+//       res.setHeader("Location", "/");
+//       return res.end();
+//     })
+//   }
+// });
+// server.listen(4500, "localhost", () => {
+//   console.log("listening...");
+// });
+
+
+
+
+const http = require("http");
+const fs = require("fs");
+
+const server = http.createServer((req, res) => {
+  const url = req.url;
+  const method = req.method;
+
+  if (url === "/") {
+    res.write("<html>");
+    res.write("<head><title>Enter Message</title></head>");
+    res.write('<body><form action="/message" method="POST"><input type="text" name="message"><Button type="submit">SEND</Button></form>');
+
+    // Add this placeholder to display the message
+    const message = fs.readFileSync("message.txt", "utf8");
+    console.log("message", message);
+    if (message) {
+      console.log('kjfndijvjk')
+      res.write(`<div>Message: ${message}</div>`);
+    }
+
+    res.write("</body></html>");
+    return res.end();
+  }
+
+  if (url === "/message" && method === "POST") {
+    const body = [];
+    req.on("data", (c) => {
+      body.push(c);
+    });
+    req.on("end", () => {
+      const parsedBody = Buffer.concat(body).toString();
+      const message = parsedBody.split("=")[1];
+      fs.writeFileSync("message.txt", message, ()=>{
+        res.setHeader("Location", "/");
+        res.statusCode = 302;
+        res.end();
+      });
+    });
+  }
+});
+
+server.listen(4500, "localhost", () => {
+  console.log("listening...");
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // const http = require("http");
@@ -10,28 +116,22 @@ console.log("Hello world")
 //   console.log("listening...");
 // })
 
-const http = require("http");
+// const http = require("http");
 
-http.createServer((req, res) => {
-  if (req.url === "/home") {
-    res.write("<h1>Welcome home</h1>");
-  } else if (req.url === "/about") {
-    res.write("<h1>Welcome to About Us page</h1>");
-  } else if (req.url === "/node") {
-    res.write("<h1>Welcome to my Node Js project</h1>");
-  } else {
-    res.write("<h1>vicky poonia</h1>");
-  }
-  res.end();
-}).listen(4500, "localhost", () => {
-  console.log("listening...");
-});
-
-
-
-
-
-
+// http.createServer((req, res) => {
+//   if (req.url === "/home") {
+//     res.write("<h1>Welcome home</h1>");
+//   } else if (req.url === "/about") {
+//     res.write("<h1>Welcome to About Us page</h1>");
+//   } else if (req.url === "/node") {
+//     res.write("<h1>Welcome to my Node Js project</h1>");
+//   } else {
+//     res.write("<h1>vicky poonia</h1>");
+//   }
+//   res.end();
+// }).listen(4500, "localhost", () => {
+//   console.log("listening...");
+// });
 
 // console.log("Hello world")
 
@@ -60,7 +160,6 @@ http.createServer((req, res) => {
 
 // console.log(obj1)
 // console.log(obj2)
-
 
 // const fun = (a, b) => {
 //   return (
